@@ -1,0 +1,39 @@
+代码补全插件 
+4. 代码提示插件SublimeCodeIntel
+这个也没什么废话吧，支持多语言的高速编码的代码提示工具。
+装上后还不能直接使用，查了一下原因要配置 。
+你可以点击 Preferences->Browse Packages->SublimeCodeIntel然后添加一个.codeintel文件夹再再在文件夹里面添加一个config文件（Windows创建.codeintel文件夹需要输入.codeintel.）
+config文件配置：
+{
+    "PHP": {
+        "php": '/usr/bin/php',
+        "phpExtraPaths": [],
+        "phpConfigFile": 'php.ini'
+    },
+    "JavaScript": {
+        "javascriptExtraPaths": []
+    },
+    "Perl": {
+        "perl": "/usr/bin/perl",
+        "perlExtraPaths": []
+    },
+    "Ruby": {
+        "ruby": "/usr/bin/ruby",
+        "rubyExtraPaths": []
+    },
+    "Python": {
+        "python": '/usr/bin/python',
+        "pythonExtraPaths": []
+    },
+    "Python3": {
+        "python": '/usr/bin/python3',
+        "pythonExtraPaths": []
+    }
+}
+
+
+然后打开Sublime创建个文件试一下，如果还不行就按下 ctrl+shift+space 开启提示功能。
+
+作者： IT程序狮 
+链接：http://www.imooc.com/article/2070
+来源：慕课网
