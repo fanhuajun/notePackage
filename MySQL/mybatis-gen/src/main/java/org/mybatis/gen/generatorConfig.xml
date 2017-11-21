@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+  PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+  "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+	<!-- D:/Maven/localRepository  F:/Maven/Repository -->
+	<!-- <classPathEntry location="D:/repository/mysql/mysql-connector-java/5.0.5/mysql-connector-java-5.0.5.jar" /> -->
+    
+	<context id="MysqlTables" targetRuntime="MyBatis3">
+		<plugin type="org.mybatis.gen.RenameMybatorPlugin">
+            <property name="searchString" value="Example$" />
+            <property name="replaceString" value="Criteria" />
+        </plugin>
+		
+		<commentGenerator type="org.mybatis.gen.DefaultCommentGenerator">
+		</commentGenerator>
+		
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+            connectionURL="jdbc:mysql://10.1.251.17:3306/warn?createDatabaseIfNotExist=true&amp;useUnicode=true&amp;characterEncoding=utf-8" 
+            userId="root"
+            password="123456">
+        </jdbcConnection>
+        
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false" />
+        </javaTypeResolver>
+        
+		<javaModelGenerator targetPackage="com.eba.version.model"
+			targetProject="src\main\java">
+			<property name="enableSubPackages" value="true" />
+			<property name="trimStrings" value="true" />
+			<!--  <property name="rootClass" value="com.services.vshowserver.model.BaseModel"/>-->
+		</javaModelGenerator>
+
+		<sqlMapGenerator targetPackage="com.eba.version.mapper.xml"
+			targetProject="src\main\java">
+			<property name="enableSubPackages" value="true" />
+		</sqlMapGenerator>
+
+		<javaClientGenerator type="XMLMAPPER" targetPackage="com.eba.version.mapper"
+			targetProject="src\main\java">
+		</javaClientGenerator>	
+        
+        <!-- 版本信息控制表  -->
+		<table schema="warn" tableName="signal_data_real_new" domainObjectName="SignalDataRealNew" enableCountByExample="false" 
+            enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="false" >
+            <!-- 驼峰法  -->
+            <property name="useActualColumnNames" value="false" />
+        </table>
+	</context>
+</generatorConfiguration>

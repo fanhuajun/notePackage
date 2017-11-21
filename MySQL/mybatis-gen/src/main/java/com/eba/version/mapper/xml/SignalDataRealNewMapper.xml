@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.eba.version.mapper.SignalDataRealNewMapper" >
+  <resultMap id="BaseResultMap" type="com.eba.version.model.SignalDataRealNew" >
+    <id column="data_id" property="dataId" jdbcType="BIGINT" />
+    <result column="signal_info_id" property="signalInfoId" jdbcType="BIGINT" />
+    <result column="third_signal_id" property="thirdSignalId" jdbcType="VARCHAR" />
+    <result column="signal_value" property="signalValue" jdbcType="VARCHAR" />
+    <result column="origin_value" property="originValue" jdbcType="VARCHAR" />
+    <result column="acquisition_time" property="acquisitionTime" jdbcType="TIMESTAMP" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="FIRE_SYNCH_TIME" property="fireSynchTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    data_id, signal_info_id, third_signal_id, signal_value, origin_value, acquisition_time, 
+    name, status, FIRE_SYNCH_TIME
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from signal_data_real_new
+    where data_id = #{dataId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from signal_data_real_new
+    where data_id = #{dataId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.eba.version.model.SignalDataRealNew" >
+    insert into signal_data_real_new (data_id, signal_info_id, third_signal_id, 
+      signal_value, origin_value, acquisition_time, 
+      name, status, FIRE_SYNCH_TIME
+      )
+    values (#{dataId,jdbcType=BIGINT}, #{signalInfoId,jdbcType=BIGINT}, #{thirdSignalId,jdbcType=VARCHAR}, 
+      #{signalValue,jdbcType=VARCHAR}, #{originValue,jdbcType=VARCHAR}, #{acquisitionTime,jdbcType=TIMESTAMP}, 
+      #{name,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}, #{fireSynchTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.eba.version.model.SignalDataRealNew" >
+    insert into signal_data_real_new
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="dataId != null" >
+        data_id,
+      </if>
+      <if test="signalInfoId != null" >
+        signal_info_id,
+      </if>
+      <if test="thirdSignalId != null" >
+        third_signal_id,
+      </if>
+      <if test="signalValue != null" >
+        signal_value,
+      </if>
+      <if test="originValue != null" >
+        origin_value,
+      </if>
+      <if test="acquisitionTime != null" >
+        acquisition_time,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="fireSynchTime != null" >
+        FIRE_SYNCH_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="dataId != null" >
+        #{dataId,jdbcType=BIGINT},
+      </if>
+      <if test="signalInfoId != null" >
+        #{signalInfoId,jdbcType=BIGINT},
+      </if>
+      <if test="thirdSignalId != null" >
+        #{thirdSignalId,jdbcType=VARCHAR},
+      </if>
+      <if test="signalValue != null" >
+        #{signalValue,jdbcType=VARCHAR},
+      </if>
+      <if test="originValue != null" >
+        #{originValue,jdbcType=VARCHAR},
+      </if>
+      <if test="acquisitionTime != null" >
+        #{acquisitionTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="fireSynchTime != null" >
+        #{fireSynchTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.eba.version.model.SignalDataRealNew" >
+    update signal_data_real_new
+    <set >
+      <if test="signalInfoId != null" >
+        signal_info_id = #{signalInfoId,jdbcType=BIGINT},
+      </if>
+      <if test="thirdSignalId != null" >
+        third_signal_id = #{thirdSignalId,jdbcType=VARCHAR},
+      </if>
+      <if test="signalValue != null" >
+        signal_value = #{signalValue,jdbcType=VARCHAR},
+      </if>
+      <if test="originValue != null" >
+        origin_value = #{originValue,jdbcType=VARCHAR},
+      </if>
+      <if test="acquisitionTime != null" >
+        acquisition_time = #{acquisitionTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="fireSynchTime != null" >
+        FIRE_SYNCH_TIME = #{fireSynchTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where data_id = #{dataId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.eba.version.model.SignalDataRealNew" >
+    update signal_data_real_new
+    set signal_info_id = #{signalInfoId,jdbcType=BIGINT},
+      third_signal_id = #{thirdSignalId,jdbcType=VARCHAR},
+      signal_value = #{signalValue,jdbcType=VARCHAR},
+      origin_value = #{originValue,jdbcType=VARCHAR},
+      acquisition_time = #{acquisitionTime,jdbcType=TIMESTAMP},
+      name = #{name,jdbcType=VARCHAR},
+      status = #{status,jdbcType=INTEGER},
+      FIRE_SYNCH_TIME = #{fireSynchTime,jdbcType=TIMESTAMP}
+    where data_id = #{dataId,jdbcType=BIGINT}
+  </update>
+</mapper>
